@@ -1,0 +1,66 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int num=sc.nextInt();
+        sc.nextLine();
+        for(int i=0;i<num;i++)
+        {
+            Stack<Integer> stk = new Stack<>();
+            String str = sc.nextLine();
+            String tokens[]=str.split(" ");
+            for(int j=0;j<tokens.length;j++)
+            {
+                if(tokens[j].equals("+"))
+                {
+                   int a,b;
+                   a=stk.pop();
+                   b=stk.pop();
+                   int res=a+b;      
+                   stk.push(res);                                        
+                }
+                else if(tokens[j].equals("-"))
+                {
+                    int x,y,res=0;
+                    x=stk.pop();
+                    y=stk.pop();
+                    res=y-x;
+                    stk.push(res);
+                }
+                else if(tokens[j].equals("*"))
+                {
+                    int c,d,e;
+                    c=stk.pop();
+                    d=stk.pop();
+                    e=c*d;
+                    stk.push(e);
+                }
+                else if(tokens[j].equals("/"))
+                {
+                    int l,m,n;
+                    l=stk.pop();
+                    m=stk.pop();
+                    n=m/l;
+                    stk.push(n);
+                }
+                else
+                {
+                    try
+                    {
+                    stk.push(Integer.parseInt(tokens[j]));
+                    }
+                    catch(Exception e)
+                    {
+                        
+                    }
+                }
+            }
+            if(!stk.isEmpty())
+            {
+                System.out.println(stk.peek());
+            }
+        }
+    }
+}
