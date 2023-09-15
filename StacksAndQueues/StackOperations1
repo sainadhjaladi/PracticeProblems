@@ -1,0 +1,48 @@
+import java.util.*;
+import java.util.Collections;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int num=sc.nextInt();
+        for(int i=1;i<=num;i++)
+        {
+            int r=sc.nextInt();
+            Stack<Long> stk = new Stack<>();
+               System.out.print("Case"+" " +i+":");
+               System.out.println();
+            for(int j=1;j<=r;j++)
+            {
+                String str = sc.next();
+                if(str.equals("A"))
+                {
+                    long x =  sc.nextInt();
+                    stk.push(x);
+                }
+                else if(str.equals("Q"))
+                {
+                    if(stk.isEmpty())
+                    {
+                            System.out.println("Empty");
+                    }
+                    else
+                    {
+                        long vari=Collections.max(stk);
+                        System.out.println(vari);
+                    }
+                    
+                }
+                else if(str.equals("R"))
+                {
+                    if(!stk.isEmpty())
+                    {
+                    stk.pop();
+                    }
+                }
+                
+                
+            }
+        }
+    }
+}
