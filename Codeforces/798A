@@ -1,0 +1,27 @@
+//Mike and Palindrome
+import java.util.*;
+public class Main 
+{
+    public static void main(String args[]) 
+    {
+      Scanner sc = new Scanner(System.in);
+      String str=sc.next();
+      int count=0;
+      int len = str.length();
+      int high=len-1;
+      int low=0;
+      while(low<high)
+      {
+          if(str.charAt(low)!=str.charAt(high))
+          count++;
+          low++;
+          high--;
+      }
+      if(count==1||(count==0&&len%2==1))
+      System.out.println("YES");
+      else
+      System.out.println("NO");
+    }
+}
+
+
