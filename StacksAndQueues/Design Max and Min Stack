@@ -1,0 +1,62 @@
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        for(int i=0;i<num;i++)
+        {
+            Stack<Integer> stk = new Stack<>();
+            Stack<Integer> max = new Stack<>();
+            Stack<Integer> min = new Stack<>();
+            int n=sc.nextInt();
+            for(int j=0;j<n;j++)
+            {
+               int a= sc.nextInt();
+               stk.push(a);
+               
+               if(max.isEmpty() || a>=max.peek() )
+               {
+                   max.push(a);
+                   if(min.isEmpty())
+                   {
+                       min.push(a);
+                   }
+                   else 
+                   {
+                       min.push(min.peek());
+                   }
+                   
+               }
+               else
+               {
+                   max.push(max.peek());
+                   if(a>min.peek())
+                   {
+                       min.push(min.peek());
+                   }
+                   else if(a<=min.peek())
+                   {
+                       min.push(a);
+                   }
+               }
+               
+               
+            }
+                for(int ok:max)
+                {
+                    System.out.print(ok+" ");
+                }
+                System.out.println();
+                for(int ko:min)
+                {
+                    System.out.print(ko+" ");
+                }
+                System.out.println();
+                System.out.println();
+          
+            
+        }
+    }
+}
