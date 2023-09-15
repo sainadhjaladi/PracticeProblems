@@ -1,0 +1,43 @@
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        Stack <Integer> stk = new Stack<>();
+        Stack <Integer> temp = new Stack<>();
+        int num = sc.nextInt();
+        for(int i=0;i<num;i++)
+        {
+            int a=sc.nextInt();
+            if(a==1)
+            {
+                int b=sc.nextInt();
+                stk.push(b);
+            }
+            else if(a==2)
+            {
+                if(stk.isEmpty())
+                {
+                    System.out.print("-1"+" ");
+                }
+                else 
+                {
+                    int size =stk.size();
+                    for(int k=0;k<size;k++)
+                    {
+                        int z = stk.pop();
+                        temp.push(z);
+                    }
+                    int res=temp.pop();
+                    System.out.print(res+" ");
+                    for(int l=0;l<size-1;l++)
+                    {
+                        int p=temp.pop();
+                        stk.push(p);
+                    }
+                }
+            }
+        }
+    }
+}
