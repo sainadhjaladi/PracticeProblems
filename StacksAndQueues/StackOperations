@@ -1,0 +1,48 @@
+import java.util.*;
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int num=sc.nextInt();
+        for(int i=0;i<num;i++)
+        {
+            int t = sc.nextInt();
+            
+            Stack <Integer> stk = new Stack<>(); 
+            
+            for(int j=0;j<t;j++)
+            {
+                String str = sc.next();
+                
+                if(str.equals("+"))
+                {
+
+                    int res=0;
+                    res=stk.get(stk.size()-1)+stk.get(stk.size()-2);
+                    stk.push(res);
+                }
+                else if(str.equals("D"))
+                {
+                    int z=2*stk.peek();
+                    stk.push(z);
+                   
+                }
+                else if(str.equals("C"))
+                {
+                    stk.pop();
+                }
+                else 
+                {
+                    stk.push(Integer.parseInt(str));
+                }
+            }
+                int sum=0;
+                for(int k=0;k<stk.size();k++)
+                {
+                    sum=sum+stk.get(k);
+                }
+                System.out.println(sum);
+        }
+    }
+}
