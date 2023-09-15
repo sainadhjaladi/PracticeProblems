@@ -1,0 +1,52 @@
+import java.util.*;
+
+class BeingZero {
+    
+    Stack<Integer>stk ;
+    Stack<Integer>min;
+    public BeingZero() {
+      stk = new Stack<>();
+      min = new Stack<>();
+    }
+    
+    public void push(int val)
+    {
+        
+        if(min.isEmpty() || val<=min.peek())
+        {
+            min.push(val);
+        }
+        else
+        {
+            min.push(min.peek());
+            
+        }
+        stk.push(val);
+    }
+    
+    public void pop()
+    {
+        // complete the pop function.
+        stk.pop();
+        min.pop();
+    }
+    
+    public int top() {
+        // complete the top function.
+        return stk.peek();
+    }
+    
+    public int getMin() {
+        // complete the getMin function.
+        return min.peek();
+    }
+}
+
+/**
+ * Your BeingZero object will be instantiated and called as such:
+ * BeingZero obj = new BeingZero();
+ * obj.push(val);
+ * obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.getMin();
+ */
