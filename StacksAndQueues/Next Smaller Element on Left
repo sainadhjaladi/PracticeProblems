@@ -1,0 +1,37 @@
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int num=sc.nextInt();
+        int arr[]=new int[num];
+        for(int i=0;i<num;i++)
+        {
+            arr[i]=sc.nextInt();   
+        }
+        Stack<Integer> stk = new Stack<>();
+        int arr1[] = new int[num];
+        
+        for(int i=0;i<num;i++)
+        {
+            while(!stk.isEmpty() && stk.peek() >= arr[i])
+            {
+                stk.pop();
+            }
+            if(!stk.isEmpty())
+            {
+                arr1[i] = stk.peek();
+            }
+            else
+            {
+                arr1[i] = -1;
+            }
+            stk.push(arr[i]);
+        }
+        for(int j=0;j<num;j++)
+        {
+            System.out.print(arr1[j]+" ");
+        }
+    }
+}
