@@ -1,0 +1,47 @@
+import java.util.*; 
+
+class BeingZero 
+{
+    
+    private Queue<Integer> qw =new LinkedList<>() ;
+    private Queue<Integer> temp=new LinkedList<>() ;
+    public BeingZero()
+    {
+        qw = new LinkedList<>();
+        temp = new LinkedList<>();
+    }
+    
+    public void push(int val)
+    {
+     qw.add(val) ;  
+    }
+    
+    public int pop()
+    {
+        if(qw.isEmpty())
+        return -1;// if stack is empty return -1
+        else
+        {
+            int size=qw.size();
+            for(int i=0;i<size-1;i++)
+            {
+                int a=qw.remove();
+                temp.add(a);                                                          
+            }
+            int res= qw.remove();
+            while(!temp.isEmpty())
+            {
+                int b = temp.remove();
+                qw.add(b);
+            }
+            return res;
+            
+        }
+    }
+}
+/**
+ * Your BeingZero object will be instantiated and called as such:
+ * BeingZero obj = new BeingZero();
+ * obj.push(val);
+ * int ans = obj.pop();
+ */
