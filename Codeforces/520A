@@ -1,0 +1,25 @@
+import java.util.*;
+public class MyClass 
+{
+    public static void main(String args[])
+    {
+      Scanner sc = new Scanner(System.in);
+      Set<Character>set = new HashSet<>();
+      int num = sc.nextInt();
+      String str = sc.next();
+      str = str.toLowerCase(); 
+      char arr[]=str.toCharArray();
+      for(char ch:arr)
+      {
+          set.add(ch);
+      }
+      if(set.size()==26)
+      {
+          System.out.println("YES");
+      }
+      else
+      {
+          System.out.println("NO");
+      }
+    }
+}
