@@ -1,0 +1,37 @@
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner sc = new Scanner(System.in);
+      int t = sc.nextInt();
+      while(t-->0)
+      {
+          int num = sc.nextInt();
+          String str = sc.next();
+          char arr[]=new char[num];
+          for(int i=0;i<num;i++)
+          {
+              if(str.charAt(i)=='U')
+              {
+                  arr[i]='D';
+              }
+              else if(str.charAt(i)=='L')
+              {
+                  arr[i]='L';
+              }
+              else if(str.charAt(i)=='R')
+              {
+                  arr[i]='R';
+              }
+              else if(str.charAt(i)=='D')
+              {
+                  arr[i]='U';
+              }
+          }
+          for(char ch:arr)
+          {
+              System.out.print(ch);
+          }
+          System.out.println();
+      }
+    }
+}
