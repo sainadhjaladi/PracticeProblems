@@ -1,0 +1,53 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public SLLNode kReverse(SLLNode A, int B) {
+		if(A==null||B==1)
+		{
+		    return A;
+		}
+		
+		SLLNode dummy = new SLLNode(-99);
+		dummy.next=A;
+		
+		SLLNode cur=dummy;
+		SLLNode nex=dummy;
+		SLLNode prev=dummy;
+		
+		int count=0;
+		while(cur.next!=null)
+		{
+		    cur=cur.next;
+		    count++;
+		}
+		
+		while(count>=B)
+		{
+		    cur=prev.next;
+		    nex=cur.next;
+		    for(int i=1;i<B;i++)
+		    {
+		        cur.next=nex.next;
+		        nex.next=prev.next;
+		        prev.next=nex;
+		        nex=cur.next;
+		    }
+		    prev=cur;
+		    count=count-B;
+		}
+		return dummy.next;
+	}
+}
