@@ -1,0 +1,39 @@
+import java.util.*;
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) 
+	{ 
+		this.val = val; 
+		next = null;
+	}
+}
+
+class BeingZero {
+    public ListNode removeElements(ListNode head, int val) {
+        // complete the code
+        if(head==null)
+            return head;
+        while(head!=null && head.val==val)
+        {
+            head = head.next;
+        }
+        
+        
+        ListNode t = head;
+        while(t.next!=null && t!=null)
+        {
+            if(t.next.val==val)
+            {
+                t.next=t.next.next;
+            }
+            else
+            {
+            t=t.next;
+            }
+        }
+        
+        return head;
+    }
+}
