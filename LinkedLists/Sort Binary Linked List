@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public SLLNode solve(SLLNode h) {
+        // TODO:  Complete this function
+        // Do not read any input, use the list passed in as function input parameter
+        // Do not print any output
+        // Just return head of sorted list
+        // Do it in CONSTANT space
+        SLLNode temp = h;
+        int c0=0;
+        int c1=0;
+        while(temp!=null)
+        {
+           if(temp.data == 0)
+           {
+               c0++;
+           }
+           else
+           {
+               c1++;
+           }
+           temp=temp.next;
+        }
+        
+        SLLNode head = h;
+        for(int i=0;i<c0;i++)
+        {
+            head.data=0;
+            head=head.next;
+        }
+        
+        for(int j=0;j<c1;j++)
+        {
+            head.data=1;
+            head=head.next;
+        }
+        
+        return h;
+        
+	}
+}
