@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public int kthFromMiddle(SLLNode head, int B) {
+		if(head == null || B==0)
+		{
+		    return -1;
+		}
+		
+		//length of the list
+		SLLNode temp = head;
+		int len = 0;
+		while(temp!=null)
+		{
+		    len++;
+		    temp = temp.next;
+		}
+		int middle = len/2+1;
+		int j=(middle-B)-1;
+		
+		    if(B>middle)
+		    {
+		        return -1;
+		    }
+		for(int i=0;i<j;i++)
+		{
+		   head=head.next; 
+		}
+		
+		if(head!=null)
+		{
+		    return head.data;
+		}
+		else
+		{
+		    return -1;
+		}
+		
+		
+	}
+}
