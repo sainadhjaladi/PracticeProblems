@@ -1,0 +1,41 @@
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public SLLNode removeDuplicates(SLLNode A) {
+		SLLNode dummy = new SLLNode(-99);
+		dummy.next=A;
+		SLLNode prev=dummy;
+		
+		while(A!=null)
+		{
+		    if(A.next!=null && A.data==A.next.data)
+		    {
+		        while(A.next!=null && A.data==A.next.data)
+		        {
+		            A=A.next;
+		        }
+		        prev.next=A.next;
+		    }
+		    else
+		    {
+		        prev=prev.next;
+		    }
+		    A=A.next;
+		}
+		return dummy.next;
+    }
+}
