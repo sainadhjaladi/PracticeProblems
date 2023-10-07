@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public boolean isPalindromic(SLLNode A) {
+	    
+	    if(A == null || A.next == null)
+	    {
+	        return true;
+	    }
+	    
+	    SLLNode sp = A;
+	    SLLNode fp = A;
+	    while(fp.next!=null && fp.next.next!=null)
+	    {
+	        sp = sp.next;
+	        fp = fp.next.next;
+	    }
+	    
+	    SLLNode prev = null;
+	    SLLNode current = sp.next;
+	    SLLNode nn = null;
+	    while(current!=null)
+	    {
+	        nn = current.next;
+	        current.next = prev;
+	        prev = current;
+	        current=nn;
+	    }
+	    
+	    SLLNode fh = A;
+	    SLLNode sh=prev;
+	    while(sh!=null)
+	    {
+	        if(fh.data!=sh.data)
+	        {
+	            return false;
+	        }
+	        fh = fh.next;
+	        sh = sh.next;
+	    }
+	    return true;
+	}
+}
