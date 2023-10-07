@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	SLLNode sort(SLLNode h){
+		// TODO:  Complete given function
+		int count=0;
+		SLLNode t=h;
+		while(t!=null)
+		{
+		    count++;
+		    t=t.next;
+		}
+		
+		int arr[]=new int[count];
+		int i=0;
+		SLLNode temp=h;
+		while(temp!=null)
+		{
+		    arr[i]=temp.data;
+		    i++;
+		    temp=temp.next;
+		}
+		Arrays.sort(arr);
+		
+		SLLNode dummy=new SLLNode(-99);
+		dummy.next=h;
+		SLLNode move=dummy;
+		for(int j=0;j<arr.length;j++)
+		{
+		    move.next=new SLLNode(arr[j]);
+		    move=move.next;
+		}
+		return dummy.next;
+	}
+}
