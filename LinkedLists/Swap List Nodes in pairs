@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public SLLNode swapPairs(SLLNode A) {
+	    SLLNode dummy = new SLLNode(-99);
+	    dummy.next = A;
+	    
+	    SLLNode t=dummy;
+	    while(t.next!=null && t.next.next!=null)
+	    {
+	        //Finding the nodes to swap
+	        SLLNode temp1 = t.next;
+	        SLLNode temp2 = t.next.next;
+	        
+	        //swaping the nodes
+	        temp1.next=temp2.next;
+	        temp2.next=temp1;
+	        
+	        //placing the t pointer to point next of the dummy node
+	        t.next=temp2;
+	        t=temp1;
+	        
+	    }
+	        //Returing dummy.next which is pointing to the actual head
+	        return dummy.next;
+	}
+}
