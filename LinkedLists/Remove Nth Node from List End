@@ -1,0 +1,54 @@
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class SLLNode{
+	int data;
+	SLLNode next;
+	SLLNode(int d){
+		data = d;
+		next = null;
+	}
+};
+
+class BeingZero{
+	public SLLNode removeNthFromEnd(SLLNode A, int B) 
+	{
+	    if(A==null)
+	    return A;
+	    
+	    SLLNode h = A;
+	    int lena =0;
+	    while(h!=null)
+	    {
+	        lena++;
+	        h=h.next;
+	    }
+	    
+	    if(B>lena)
+	    {
+	        return A.next;
+	    }
+	    
+	    SLLNode dummy = new SLLNode(0);
+	    dummy.next = A;
+	    SLLNode current = dummy,nn = dummy;
+	    
+	    for(int i=0;i<B+1;i++)
+	    {
+	        current = current.next;
+	    }
+	    
+	    while(current!=null)
+	    {
+	        current = current.next;
+	        nn = nn.next;
+	    }
+        nn.next = nn.next.next;
+        
+        return dummy.next;
+	}
+}
